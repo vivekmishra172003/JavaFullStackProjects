@@ -13,6 +13,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>deals-coupons-app</name>
 	<description>Demo project for Spring Boot</description>
+	    <modules>
+        <module>eureka-server</module>
+        <module>user-service</module>
+        <module>deals-service</module>
+        <module>coupon-service</module>
+    </modules>
+	
+	
 	<url/>
 	<licenses>
 		<license/>
@@ -40,6 +48,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 
 	<build>

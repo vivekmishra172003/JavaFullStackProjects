@@ -40,13 +40,14 @@ public class DealsService {
                 .collect(Collectors.toList());
     }
     
-    public DiscountResponse calculatePriceWithCoupon(Long dealId, String couponCode, Long userId) {
+    public DiscountResponse calculatePriceWithCoupon(Long dealId, String couponCode, Long userId, String authToken) {
         DiscountRequest request = new DiscountRequest();
         request.setDealId(dealId);
         request.setCouponCode(couponCode);
         request.setUserId(userId);
         
-        return couponServiceClient.calculateFinalPrice(request);
+        // Pass the token to the coupon service
+        return couponServiceClient.calculateFinalPrice(request, authToken);
     }
     
     private DealDto convertToDto(Deal deal) {

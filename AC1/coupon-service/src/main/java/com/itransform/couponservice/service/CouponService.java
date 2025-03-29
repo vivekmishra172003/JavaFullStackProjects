@@ -38,6 +38,7 @@ public class CouponService {
     }
     
     public List<CouponDto> getUserCoupons(Long userId) {
+        // This is now a protected endpoint - only accessible with valid JWT
         List<UserCoupon> userCoupons = userCouponRepository.findByUserIdAndIsUsed(userId, false);
         
         return userCoupons.stream()
@@ -48,8 +49,9 @@ public class CouponService {
     }
     
     public CouponDto getCouponByCode(String code) {
+        // Public endpoint - just show coupon details
         Coupon coupon = couponRepository.findByCode(code)
-                            .orElseThrow(() -> new RuntimeException("Coupon not found with code: " + code));
+                        .orElseThrow(() -> new RuntimeException("Coupon not found with code: " + code));
         
         if (!coupon.isActive() || coupon.getStartDate().isAfter(LocalDate.now()) || coupon.getEndDate().isBefore(LocalDate.now())) {
             throw new RuntimeException("Coupon is not valid");
@@ -59,6 +61,8 @@ public class CouponService {
     }
     
     public DiscountResponse calculateFinalPrice(DiscountRequest request) {
+        // This is now a protected endpoint - only accessible with valid JWT
+        
         // Get deal details
         DealDto deal = dealsServiceClient.getDealById(request.getDealId());
         
