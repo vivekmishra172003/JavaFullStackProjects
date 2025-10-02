@@ -7,8 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class DiscountResponse {
     private BigDecimal originalPrice;
     private BigDecimal discountedPrice;

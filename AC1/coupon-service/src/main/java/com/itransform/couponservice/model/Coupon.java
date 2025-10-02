@@ -19,8 +19,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "coupons")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Coupon {
     
     public enum DiscountType {

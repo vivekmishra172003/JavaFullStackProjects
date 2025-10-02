@@ -16,8 +16,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user_coupons")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class UserCoupon {
     
     @Id
